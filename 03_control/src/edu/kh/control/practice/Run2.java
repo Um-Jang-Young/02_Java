@@ -17,7 +17,7 @@ public class Run2 { // 실행용 클래스
 		//lp.practice10();
 		//lp.practice11();
 		//lp.practice12();
-		lp.practice13();
+		//lp.practice13();
 
 	}
 
