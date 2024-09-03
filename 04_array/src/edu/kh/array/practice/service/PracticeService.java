@@ -537,7 +537,11 @@ public class PracticeService {
 		while(true) {
 			
 			
+<<<<<<< HEAD
 			for(int i = 1; i <= size; i++) { // 문자열 배열 순회
+=======
+			for(int i = 1; i <= size; i++) {
+>>>>>>> 5fc6aa9b59d3a8a078647de2a9de51748d51f2ac
 				System.out.print(i + "번째 문자열 : ");
 				String input = sc.nextLine();
 				//System.out.println(input);
