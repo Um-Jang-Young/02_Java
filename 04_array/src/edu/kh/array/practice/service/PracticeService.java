@@ -537,8 +537,8 @@ public class PracticeService {
 		while(true) {
 			
 			
-			for(int i = 0; i < size; i++) {
-				System.out.print((index + 1) + "번째 문자열 : ");
+			for(int i = 1; i <= size; i++) {
+				System.out.print(i + "번째 문자열 : ");
 				String input = sc.nextLine();
 				//System.out.println(input);
 				arr[index++] = input;
