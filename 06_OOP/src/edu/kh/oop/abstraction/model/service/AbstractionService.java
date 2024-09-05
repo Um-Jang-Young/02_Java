@@ -54,7 +54,7 @@ public class AbstractionService {
 		jyum.setpNo("870928-1731210");
 		jyum.setAddress("서울시 종로구");
 		jyum.setPhone("010-5196-1319");
-		jyum.setAge(36);
+		jyum.setAge(30);
 		
 		System.out.println(jyum.getName());
 		System.out.println(jyum.getGender());
