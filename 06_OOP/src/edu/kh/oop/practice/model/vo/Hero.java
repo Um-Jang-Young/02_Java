@@ -10,7 +10,7 @@ package edu.kh.oop.practice.model.vo;
  - exp : double // 경험치
  + Hero()
  + Hero(nickname:String, job:String, hp:int,
- mp:int, level:int, exp:double)
+   mp:int, level:int, exp:double)
  + attack(exp:double) : void
  + dash() : void
  + toString() : String // @Override
