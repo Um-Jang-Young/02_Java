@@ -63,8 +63,11 @@ public class Run {
 			char ch = sc.next().charAt(0);
 			
 			if(ch == 'N' || ch == 'n') {
-				for(int i = 0; i < index; i++) {
-					System.out.println(emp[i].information());
+				for(Employee e : emp) {
+					if(e == null) {
+						break;
+					}
+					System.out.println(e.information());
 				}
 				break;
 			}

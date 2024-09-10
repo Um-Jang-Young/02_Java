@@ -21,7 +21,7 @@ public class Student extends Person {
 		str = " / 학년 : " + grade;
 		str += " / 전공 : " + major;
 		
-		return super.information() + str;
+		return super.information() + String.format("/ 학년 : %d / 전공 : %s", grade, major);
 	}
 
 	public int getGrade() {

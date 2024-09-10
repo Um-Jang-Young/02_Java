@@ -37,6 +37,6 @@ public class Employee extends Person {
 		str = " / 급여 : " + salary;
 		str += " / 부서 : " + dept;
 		
-		return super.information() + str;
+		return super.information() + String.format(" / 급여 : %d / 부서 : %s", salary, dept);
 	}
 }

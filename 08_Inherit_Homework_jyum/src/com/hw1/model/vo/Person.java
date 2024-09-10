@@ -33,7 +33,7 @@ public class Person {
 		str += " / 신장 : " + height;
 		str += " / 몸무게 : " + weight;
 		
-		return str;
+		return String.format("이름 : %s / 나이 : %d / 신장 : %.1f / 몸무게 : %.1f", name, age, height, weight);
 	}
 
 	public String getName() {
