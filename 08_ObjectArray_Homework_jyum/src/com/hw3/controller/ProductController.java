@@ -6,8 +6,12 @@ import com.hw3.model.vo.Product;
 
 public class ProductController {
 	private Product[] pro = null;
-	static public int count = 0;
+	public static int count = 0;
 	Scanner sc = new Scanner(System.in);
+	
+	{
+		pro = new Product[10]; 
+	}
 	
 	public void copy(Product p1, Product p2) {
 		if(p2 == null) {
@@ -20,7 +24,6 @@ public class ProductController {
 	}
 	
 	public void mainMenu() {
-		pro = new Product[10]; 
 		int input = 0;
 		
 		do {
@@ -73,10 +76,8 @@ public class ProductController {
 		System.out.print("삭제할 제품번호를 입력하세요 : ");
 		int pId = sc.nextInt();
 		boolean flag = true;
-		Product temp = null;
-		System.out.println(count);
+
 		for(int i = 0; i < count; i++) {
-			System.out.println(pro[i].getpId() + ", " + pId);
 			if(pro[i].getpId() == pId) {
 				for(int j = i; j < count; j++) {
 					copy(pro[j], pro[j+1]);

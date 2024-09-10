@@ -23,6 +23,7 @@ public class Product {
 		this.price = price;
 		this.tax = tax;
 		ProductController.count++;
+		System.out.println("count : " + ProductController.count);
 	}
 	
 	public String infomation() {
