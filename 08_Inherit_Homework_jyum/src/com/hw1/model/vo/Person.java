@@ -2,6 +2,16 @@ package com.hw1.model.vo;
 
 public class Person {
 	protected String name;
+	
+	/*
+	 * private 필드는 상속을 통해 자식 클래스가
+	 * 부모클래스의 필드를 물려받더라도
+	 * getter/setter를 이용하여 간접 접근 해야함
+	 * 
+	 * 
+	 * 
+	 * */
+	
 	private int age;
 	private double height;
 	private double weight;
