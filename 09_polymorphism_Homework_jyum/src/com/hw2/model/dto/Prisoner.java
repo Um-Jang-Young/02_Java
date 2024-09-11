@@ -11,7 +11,7 @@ public class Prisoner extends Person{
 	@Override
 	public String getInfo() {
 		
-		return String.format("- ID : %s, 이름 : %s, 죄목 : %s", super.getId(), super.getName(), crime);
+		return String.format("ID : %s, 이름 : %s, 죄목 : %s", super.getId(), super.getName(), crime);
 	}
 
 	public String getCrime() {

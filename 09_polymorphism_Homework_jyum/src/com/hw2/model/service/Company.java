@@ -19,7 +19,7 @@ public class Company implements ManagementSystem{
 			return;
 		}
 		
-		System.out.print("직원이 추가되었습니다 ");
+		System.out.print("직원이 추가되었습니다 - ");
 		employees[employeeCount] = (Employee)person;
 		
 		System.out.println(employees[employeeCount].getInfo());
@@ -38,11 +38,10 @@ public class Company implements ManagementSystem{
 			if(employees[i].getId().equals(id)) {
 				temp = employees[i];
 				for(int j = i; j < employeeCount - 1; j++) {
-					employees[j].setId(employees[j+1].getId());
-					employees[j].setName(employees[j+1].getName());
-					employees[j].setPosition(employees[j+1].getPosition());
+					employees[j] = employees[j+1];
 				}
 				employees[employeeCount-1] = null;
+				employeeCount--;
 				flag = false;
 				break;
 			}

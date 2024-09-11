@@ -33,6 +33,14 @@ public class Run {
 		
 		company.removePerson("EMP001");
 		prison.removePerson("1205");
+		
+		System.out.println("========================================");
+		
+		System.out.println("전체 직원 명단 : ");
+		company.displayAllPersons();
+		
+		System.out.println("전체 수감자 명단 : ");
+		prison.displayAllPersons();
 	}
 	
 }

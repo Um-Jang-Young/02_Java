@@ -19,7 +19,7 @@ public class Prison implements ManagementSystem{
 			return;
 		}
 		
-		System.out.print("직원이 추가되었습니다 ");
+		System.out.print("직원이 추가되었습니다 - ");
 		prisoners[prisonerCount] = (Prisoner)person;
 		
 		System.out.println(prisoners[prisonerCount].getInfo());
@@ -34,15 +34,12 @@ public class Prison implements ManagementSystem{
 		
 		for(int i = 0; i < prisonerCount; i++) {
 			if(prisoners[i].getId().equals(id)) {
-				temp.setId(prisoners[i].getId());
-				temp.setName(prisoners[i].getName());
-				temp.setCrime(prisoners[i].getCrime());
+				temp = prisoners[i];
 				for(int j = i; j < prisonerCount - 1; j++) {
-					prisoners[j].setId(prisoners[j+1].getId());
-					prisoners[j].setName(prisoners[j+1].getName());
-					prisoners[j].setCrime(prisoners[j+1].getCrime());
+					prisoners[j] = prisoners[j+1];
 				}
 				prisoners[prisonerCount-1] = null;
+				prisonerCount--;
 				flag = false;
 				break;
 			}
