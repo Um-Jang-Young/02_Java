@@ -1,0 +1,14 @@
+Wrapper 클래스 8가지
+Boolean, Character, Byte,
+Short, Integer, Long, Float, Double
+
+List
+- 순서유지 가능
+- 중복저장 가능
+
+set
+
+
+map
+- value 중복 저장 가능
+- key 중복 불가
