@@ -1,6 +1,8 @@
 package com.hw3.model.dto;
 
-import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 
 public class Toy {
 	private String toyName;
@@ -8,18 +10,22 @@ public class Toy {
 	private int price;
 	private String color;
 	private String madeDay;
-	private HashMap<Integer, String> material;
+	private Set<String> material;
 	
 	public Toy() {}
 
-	public Toy(String toyName, int age, int price, String color, String madeDay, HashMap<Integer, String> material) {
+	public Toy(String toyName, int age, int price, String color, String madeDay, Set<String> material) {
 		super();
 		this.toyName = toyName;
 		this.age = age;
 		this.price = price;
 		this.color = color;
 		this.madeDay = madeDay;
-		this.material = material;
+		
+		this.material = new HashSet<String>();
+		for(String m : material) {
+			this.material.add(m);
+		}
 	}
 
 	public String getToyName() {
@@ -62,12 +68,31 @@ public class Toy {
 		this.madeDay = madeDay;
 	}
 
-	public HashMap<Integer, String> getMaterial() {
+	public Set<String> getMaterial() {
 		return material;
 	}
 
-	public void setMaterial(HashMap<Integer, String> material) {
+	public void setMaterial(Set<String> material) {
 		this.material = material;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(age, color, madeDay, material, price, toyName);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Toy other = (Toy) obj;
+		return age == other.age && Objects.equals(color, other.color) && Objects.equals(madeDay, other.madeDay)
+				&& Objects.equals(material, other.material) && price == other.price
+				&& Objects.equals(toyName, other.toyName);
 	}
 	
 	

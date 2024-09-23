@@ -6,8 +6,8 @@ public class SetRun {
 
 	public static void main(String[] args) {
 		SetService service = new SetService();
-		//service.method4();
-		service.lottoNumberGenerator();
+		service.method3();
+		//service.lottoNumberGenerator();
 	}
 	
 }
