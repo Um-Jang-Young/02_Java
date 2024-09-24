@@ -10,8 +10,8 @@ public class Run {
 
 	public static void main(String[] args) {
 		Zoo zoo = new Zoo();
-		Tiger tiger = new Tiger();
-		Monkey monkey = new Monkey();
+		Tiger tiger = new Tiger("호랑이");
+		Monkey monkey = new Monkey("원숭이");
 		
 		zoo.addAnimal(tiger);
 		zoo.addAnimal(monkey);
@@ -20,7 +20,7 @@ public class Run {
 		
 		while(true) {
 			zoo.displayMenu();
-			System.out.print("선택: ");
+			System.out.print("선택 : ");
 			int input = sc.nextInt();
 			
 			if(input == 2) {

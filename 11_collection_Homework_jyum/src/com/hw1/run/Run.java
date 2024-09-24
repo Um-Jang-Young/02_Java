@@ -27,8 +27,9 @@ public class Run {
 		
 		int index = random.nextInt(5);
 		
-		System.out.println(list.get(index).getName() + "가 떡잎방범대 대장이다!");
-
+		Friend leader = list.get(index);
+		
+		leader.pickLeader();
 	}
 
 }

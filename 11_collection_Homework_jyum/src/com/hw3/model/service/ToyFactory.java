@@ -23,22 +23,25 @@ public class ToyFactory {
 	
 	public void displayAllToy() {
 		int count = 1;
+		System.out.println();
+		System.out.println("<전체 장난감 목록>");
 		for(Toy t : toySet) {
 			System.out.printf("%d. 이름 : %s / 가격 : %d / 색상 : %s / 사용가능연령 : %d / 제조년월일 : %s / "
 					,count++, t.getToyName(), t.getPrice(), t.getColor(), t.getAge(), t.getMadeDay());
 		
 			Iterator<String> it = t.getMaterial().iterator();
+			System.out.print("재료 : ");
 			while(it.hasNext()) {
 				String temp = it.next();
 				if(it.hasNext() == false) {
 					System.out.print(temp);
-					break;
 				} else {
 					System.out.print(temp + ", ");
 				}
 			}
 			System.out.println();
 		}
+		System.out.println();
 	}
 	
 	public void setMaterialMap() {
@@ -49,6 +52,7 @@ public class ToyFactory {
 	}
 	
 	public void setAddToy() {
+		System.out.println();
 		System.out.println("<새로운 장난감 추가>");
 		System.out.print("장난감 이름 : ");
 		String name = sc.next();
@@ -92,11 +96,12 @@ public class ToyFactory {
 				material.add(materialMap.get((int)input));
 			}
 		}
-		
+		System.out.println();
 		toySet.add(new Toy(name, age, price, color, madeDate, material));
 	}
 	
 	public void setRemoveToy() {
+		System.out.println();
 		System.out.print("삭제할 장난감의 이름을 입력하세요 : ");
 		String name = sc.next();
 		boolean flag = true;
@@ -112,10 +117,12 @@ public class ToyFactory {
 		if(flag) {
 			System.out.println("삭제할 장난감이 없습니다.");
 		}
+		System.out.println();
 	}
 	
 	public void displayMadeDate() {
-		System.out.println("제조일 순으로 장난감을 정렬");
+		System.out.println();
+		System.out.println("<제조일 순으로 장난감을 정렬>");
 		Comparator<Toy> dateComparator = Comparator.comparing(Toy::getMadeDay);
 		List<Toy> list = new ArrayList<Toy>(toySet);
 		Collections.sort(list, dateComparator);
@@ -126,17 +133,108 @@ public class ToyFactory {
 					,count++, t.getToyName(), t.getPrice(), t.getColor(), t.getAge(), t.getMadeDay());
 		
 			Iterator<String> it = t.getMaterial().iterator();
+			System.out.print("재료 : ");
 			while(it.hasNext()) {
 				String temp = it.next();
 				if(it.hasNext() == false) {
 					System.out.print(temp);
-					break;
 				} else {
 					System.out.print(temp + ", ");
 				}
 			}
 			System.out.println();
 		}
+		System.out.println();
+	}
+	
+	public void setAgeToy() {
+		System.out.println();
+		System.out.println("<연령별로 사용 가능한 장난감>");
+		Comparator<Toy> dateComparator = Comparator.comparing(Toy::getAge);
+		List<Toy> list = new ArrayList<Toy>(toySet);
+		Collections.sort(list, dateComparator);
+		
+		int age = 0;
+		int count = 1;
+		Toy t;
+		System.out.println("[연령 : " + list.get(0).getAge() + "]");
+		int tempAge = list.get(1).getAge();
+		for(int i = 0; i < list.size(); i++) {
+			age = list.get(i).getAge();
+			t = list.get(i);
+			if(age != tempAge) {
+				System.out.println("[연령 : " + age + "]");
+				
+				if((i + 1) < list.size()) {
+					tempAge = list.get(i+1).getAge();
+				}
+			} 
+			System.out.printf("%d. 이름 : %s / 가격 : %d / 색상 : %s / 사용가능연령 : %d / 제조년월일 : %s / "
+					,count++, t.getToyName(), t.getPrice(), t.getColor(), t.getAge(), t.getMadeDay());
+		
+			Iterator<String> it = t.getMaterial().iterator();
+			System.out.print("재료 : ");
+			while(it.hasNext()) {
+				String temp = it.next();
+				if(it.hasNext() == false) {
+					System.out.print(temp);
+					System.out.println();
+				} else {
+					System.out.print(temp + ", ");
+				}
+			}
+		}
+		
+		System.out.println();
+	}
+	
+	public void addMaterial() {
+		System.out.println();
+		System.out.println("<재료 추가>");
+		System.out.println("===현재 등록된 재료===");
+		Set<Integer> set = materialMap.keySet();
+		for(int key : set) {
+			System.out.printf("%d. %s\n" , key, materialMap.get(key));
+		}
+		System.out.println("======================");
+		
+		System.out.print("재료 고유번호(key) 입력 : ");
+		int mSerial = sc.nextInt();
+		System.out.print("재료명 입력 : ");
+		String materialName = sc.next();
+		
+		materialMap.put(mSerial, materialName);
+		
+		System.out.println("새로운 재료가 성공적으로 등록되었습니다.");
+		System.out.println();
+	}
+	
+	public void removeMaterial() {
+		System.out.println();
+		System.out.println("<재료 삭제>");
+		System.out.println("===현재 등록된 재료===");
+		Set<Integer> set = materialMap.keySet();
+		for(int key : set) {
+			System.out.printf("%d. %s\n" , key, materialMap.get(key));
+		}
+		System.out.println("======================");
+		
+		System.out.print("삭제할 재료명 입력 : ");
+		String materialName = sc.next();
+		boolean remove = false;
+		for(int key : set) {
+			if(materialName.equals(materialMap.get(key))) {
+				remove = materialMap.remove(key, materialName);
+				break;
+			}
+		}
+		if(remove) {
+			System.out.println("재료 '" + materialName + "'가 성공적으로 제거되었습니다.");			
+		}
+		else {
+			System.out.println("해당 이름의 재료가 존재하지 않습니다.");			
+		}
+		System.out.println();
 	}
 	
 	public void displayMenu() {

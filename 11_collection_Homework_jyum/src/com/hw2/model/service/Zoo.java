@@ -15,6 +15,7 @@ public class Zoo {
 	}
 	
 	public void showAnimals() {
+		System.out.println("동물들의 울음소리를 들어보세요~");
 		for(Animal animal : animals) {
 			animal.sound();
 		}

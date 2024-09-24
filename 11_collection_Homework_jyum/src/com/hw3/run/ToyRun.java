@@ -43,6 +43,9 @@ public class ToyRun {
 			case 2 : toyFactory.setAddToy(); break;
 			case 3 : toyFactory.setRemoveToy(); break;
 			case 4 : toyFactory.displayMadeDate(); break;
+			case 5 : toyFactory.setAgeToy(); break;
+			case 6 : toyFactory.addMaterial(); break;
+			case 7 : toyFactory.removeMaterial(); break;
 			}
 			
 		}
